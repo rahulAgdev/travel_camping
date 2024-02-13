@@ -39,7 +39,7 @@ const Nav = () => {
         className="inline-block cursor-pointer lg:hidden"
         onClick={() => setToggle((prev) => !prev)}
       /> */}
-
+      
       <Image
         src="menu.svg"
         alt="menu"
@@ -48,28 +48,29 @@ const Nav = () => {
         className="inline-block cursor-pointer lg:hidden"
         onClick={() => setToggle((prev) => !prev)}
       />
-      {toggle && (
-        <div className="dropdown">
-          <ul className="flex-col">
-            {NAV_LINKS.map((link) => (
-              <Link
-                href={link.href}
-                key={link.key}
-                className="regular-16 text-gray-50 flex-center cursor-pointer pb-1.5 transition-all hover:font-bold"
-                onClick={() => setToggle(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </ul>
-          <Button
-            type="button"
-            title="Login"
-            icon="/user.svg"
-            variant="btn_dark_green"
-          />
-        </div>
-      )}
+        {toggle && (
+          <div className="dropdown">
+            <ul className="flex-col">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  href={link.href}
+                  key={link.key}
+                  className="regular-16 text-gray-50 flex-center cursor-pointer pb-1.5 transition-all hover:font-bold"
+                  onClick={()=>setToggle(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </ul>
+            <Button
+          type="button"
+          title="Login"
+          icon="/user.svg"
+          variant="btn_dark_green"
+        />
+          </div>
+        )}
+      
     </nav>
   );
 };
